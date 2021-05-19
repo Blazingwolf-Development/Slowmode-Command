@@ -1,0 +1,6 @@
+@client.command(aliases=['Slowmode', 'Slowmodus', 'slowmodus'])
+@commands.has_permissions(kick_members=True)
+async def slowmode(ctx, seconds: int):
+    await ctx.message.delete()
+    await ctx.channel.edit(slowmode_delay=seconds)
+    await ctx.send(f"Der slowmode ist nun {seconds} sekunden!", delete_after=5)
