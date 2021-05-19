@@ -1,0 +1,7 @@
+@slowmode.error
+async def slowmode_error(ctx, error):
+    mark = ctx.author.mention
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send(f'{mark} Das darfst du hier nicht !')
+        return
+    raise error
